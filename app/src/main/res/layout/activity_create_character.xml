@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="144dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Character Name"/>
+
+    <EditText
+        android:id="@+id/inputClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Class (Mage, Warrior...)"/>
+
+    <EditText
+        android:id="@+id/inputHp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="HP"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/inputMana"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mana"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Character"/>
+
+</LinearLayout>

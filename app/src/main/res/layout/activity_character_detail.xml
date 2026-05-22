@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="144dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character"
+        style="@style/TitleText"
+        android:paddingBottom="16dp"/>
+
+    <FrameLayout
+        android:id="@+id/statsContainer"
+        style="@style/BodyText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <FrameLayout
+        android:id="@+id/inventoryContainer"
+        style="@style/BodyText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnHpPlus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add HP"/>
+
+    <Button
+        android:id="@+id/btnHpMinus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remove HP"/>
+
+    <Button
+        android:id="@+id/btnManaPlus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Mana"/>
+
+    <Button
+        android:id="@+id/btnManaMinus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remove Mana"/>
+
+</LinearLayout>
