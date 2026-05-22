@@ -38,6 +38,8 @@
 
         <activity android:name=".activities.CreateCharacterActivity" />
 
+        <activity android:name=".activities.EditCharacterActivity" />
+
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
