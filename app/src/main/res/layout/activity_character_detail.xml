@@ -30,28 +30,4 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/btnHpPlus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add HP"/>
-
-    <Button
-        android:id="@+id/btnHpMinus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remove HP"/>
-
-    <Button
-        android:id="@+id/btnManaPlus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Mana"/>
-
-    <Button
-        android:id="@+id/btnManaMinus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remove Mana"/>
-
 </LinearLayout>

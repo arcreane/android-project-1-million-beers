@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,10 +13,15 @@ import com.example.rpgpartymanager.data.AppDatabase;
 import com.example.rpgpartymanager.data.CharacterEntity;
 import com.example.rpgpartymanager.fragments.StatsFragment;
 
-public class CharacterDetailActivity extends AppCompatActivity {
+public class CharacterDetailActivity extends AppCompatActivity implements StatsFragment.StatsListener {
+
+    private static final String KEY_INITIAL_HP = "initial_hp";
+    private static final String KEY_INITIAL_MANA = "initial_mana";
 
     private AppDatabase db;
     private CharacterEntity entity;
+    private int initialHp;
+    private int initialMana;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -30,30 +36,30 @@ public class CharacterDetailActivity extends AppCompatActivity {
 
         int id = getIntent().getIntExtra("id", -1);
         entity = db.characterDao().getById(id);
+        if (b == null) {
+            initialHp = entity.hp;
+            initialMana = entity.mana;
+        } else {
+            initialHp = b.getInt(KEY_INITIAL_HP, entity.hp);
+            initialMana = b.getInt(KEY_INITIAL_MANA, entity.mana);
+        }
 
         setTitle(entity.name);
 
         refreshUI();
 
-        findViewById(R.id.btnHpPlus).setOnClickListener(v -> {
-            entity.hp += 10;
-            save();
-        });
+    }
 
-        findViewById(R.id.btnHpMinus).setOnClickListener(v -> {
-            entity.hp = Math.max(0, entity.hp - 10);
-            save();
-        });
+    @Override
+    public void onHpChanged(int amount) {
+        entity.hp = Math.max(0, entity.hp + amount);
+        save();
+    }
 
-        findViewById(R.id.btnManaPlus).setOnClickListener(v -> {
-            entity.mana += 10;
-            save();
-        });
-
-        findViewById(R.id.btnManaMinus).setOnClickListener(v -> {
-            entity.mana = Math.max(0, entity.mana - 10);
-            save();
-        });
+    @Override
+    public void onManaChanged(int amount) {
+        entity.mana = Math.max(0, entity.mana + amount);
+        save();
     }
 
     private void save() {
@@ -84,7 +90,7 @@ public class CharacterDetailActivity extends AppCompatActivity {
         }
 
         if (item.getItemId() == R.id.menu_reset) {
-            // existing reset code
+            resetStats();
             return true;
         }
 
@@ -113,6 +119,20 @@ public class CharacterDetailActivity extends AppCompatActivity {
 
         Intent chooser = Intent.createChooser(sendIntent, "Share Character");
         startActivity(chooser);
+    }
+
+    private void resetStats() {
+        entity.hp = initialHp;
+        entity.mana = initialMana;
+        save();
+        Toast.makeText(this, "Stats reset", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(KEY_INITIAL_HP, initialHp);
+        outState.putInt(KEY_INITIAL_MANA, initialMana);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
