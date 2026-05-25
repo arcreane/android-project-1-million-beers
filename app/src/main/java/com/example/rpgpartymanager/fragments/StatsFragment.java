@@ -20,11 +20,13 @@ public class StatsFragment extends Fragment {
         void onManaChanged(int amount);
     }
 
-    public static StatsFragment newInstance(int hp, int mana) {
+    public static StatsFragment newInstance(int hp, int mana, int maxHp, int maxMana) {
         StatsFragment f = new StatsFragment();
         Bundle b = new Bundle();
         b.putInt("hp", hp);
         b.putInt("mana", mana);
+        b.putInt("maxHp", maxHp);
+        b.putInt("maxMana", maxMana);
         f.setArguments(b);
         return f;
     }
@@ -41,11 +43,13 @@ public class StatsFragment extends Fragment {
         Bundle args = getArguments();
         int hpValue = args.getInt("hp");
         int manaValue = args.getInt("mana");
+        int maxHp = Math.max(1, args.getInt("maxHp"));
+        int maxMana = Math.max(1, args.getInt("maxMana"));
 
         hp.setText("HP: " + hpValue);
         mana.setText("Mana: " + manaValue);
-        hpBar.setProgress(Math.max(0, Math.min(100, hpValue)));
-        manaBar.setProgress(Math.max(0, Math.min(100, manaValue)));
+        hpBar.setProgress(toPercent(hpValue, maxHp));
+        manaBar.setProgress(toPercent(manaValue, maxMana));
 
         StatsListener listener = (StatsListener) requireActivity();
         bindButton(v, R.id.btnHpMinus3, () -> listener.onHpChanged(-3));
@@ -66,6 +70,11 @@ public class StatsFragment extends Fragment {
     private void bindButton(View view, int id, Runnable action) {
         Button button = view.findViewById(id);
         button.setOnClickListener(v -> action.run());
+    }
+
+    private int toPercent(int value, int maxValue) {
+        int percent = Math.round((value * 100f) / maxValue);
+        return Math.max(0, Math.min(100, percent));
     }
 
     private void showCustomStatDialog(String statName, StatChangeHandler handler) {
