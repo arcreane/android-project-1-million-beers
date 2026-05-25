@@ -13,7 +13,10 @@ import com.example.rpgpartymanager.data.AppDatabase;
 import com.example.rpgpartymanager.data.CharacterEntity;
 import com.example.rpgpartymanager.fragments.StatsFragment;
 
-public class CharacterDetailActivity extends AppCompatActivity {
+public class CharacterDetailActivity extends AppCompatActivity implements StatsFragment.StatsListener {
+
+    private static final String KEY_INITIAL_HP = "initial_hp";
+    private static final String KEY_INITIAL_MANA = "initial_mana";
 
     private static final String KEY_INITIAL_HP = "initial_hp";
     private static final String KEY_INITIAL_MANA = "initial_mana";
@@ -48,23 +51,16 @@ public class CharacterDetailActivity extends AppCompatActivity {
 
         refreshUI();
 
-        findViewById(R.id.btnHpPlus1).setOnClickListener(v -> changeHp(1));
-        findViewById(R.id.btnHpPlus3).setOnClickListener(v -> changeHp(3));
-        findViewById(R.id.btnHpMinus1).setOnClickListener(v -> changeHp(-1));
-        findViewById(R.id.btnHpMinus3).setOnClickListener(v -> changeHp(-3));
-
-        findViewById(R.id.btnManaPlus1).setOnClickListener(v -> changeMana(1));
-        findViewById(R.id.btnManaPlus3).setOnClickListener(v -> changeMana(3));
-        findViewById(R.id.btnManaMinus1).setOnClickListener(v -> changeMana(-1));
-        findViewById(R.id.btnManaMinus3).setOnClickListener(v -> changeMana(-3));
     }
 
-    private void changeHp(int amount) {
+    @Override
+    public void onHpChanged(int amount) {
         entity.hp = Math.max(0, entity.hp + amount);
         save();
     }
 
-    private void changeMana(int amount) {
+    @Override
+    public void onManaChanged(int amount) {
         entity.mana = Math.max(0, entity.mana + amount);
         save();
     }

@@ -13,10 +13,116 @@
         android:textSize="22sp"
         android:paddingBottom="12dp"/>
 
+    <ProgressBar
+        android:id="@+id/progressHp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="14dp"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_hp" />
+
+    <LinearLayout
+        android:id="@+id/hpControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="18dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnHpMinus3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="-3" />
+
+        <Button
+            android:id="@+id/btnHpMinus1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="-1" />
+
+        <Button
+            android:id="@+id/btnHpCustom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:text="Custom" />
+
+        <Button
+            android:id="@+id/btnHpPlus1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="+1" />
+
+        <Button
+            android:id="@+id/btnHpPlus3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="+3" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/txtMana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"/>
+
+    <ProgressBar
+        android:id="@+id/progressMana"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="14dp"
+        android:layout_marginTop="12dp"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_mana" />
+
+    <LinearLayout
+        android:id="@+id/manaControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnManaMinus3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="-3" />
+
+        <Button
+            android:id="@+id/btnManaMinus1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="-1" />
+
+        <Button
+            android:id="@+id/btnManaCustom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:text="Custom" />
+
+        <Button
+            android:id="@+id/btnManaPlus1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="+1" />
+
+        <Button
+            android:id="@+id/btnManaPlus3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="+3" />
+    </LinearLayout>
 
 </LinearLayout>
