@@ -74,7 +74,7 @@ public class CharacterDetailActivity extends AppCompatActivity implements StatsF
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.statsContainer,
-                        StatsFragment.newInstance(entity.hp, entity.mana))
+                        StatsFragment.newInstance(entity.hp, entity.mana, initialHp, initialMana))
                 .commit();
     }
 
