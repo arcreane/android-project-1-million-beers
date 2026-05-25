@@ -51,6 +51,8 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
         holder.name.setText(c.getName());
         holder.role.setText(c.getRole());
+        holder.hp.setText("HP: " + c.getHp());
+        holder.mana.setText("Mana: " + c.getMana());
 
         // OPEN DETAILS
         holder.itemView.setOnClickListener(v -> {
@@ -78,7 +80,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, role;
+        TextView name, role, hp, mana;
         Button btnDelete;
 
         public ViewHolder(@NonNull View itemView) {
@@ -86,6 +88,8 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
             name = itemView.findViewById(R.id.txtName);
             role = itemView.findViewById(R.id.txtRole);
+            hp = itemView.findViewById(R.id.txtHp);
+            mana = itemView.findViewById(R.id.txtMana);
             btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
