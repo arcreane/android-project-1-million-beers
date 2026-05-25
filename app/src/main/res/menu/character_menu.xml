@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_share"
+        android:title="Share Character" />
+
+    <item
+        android:id="@+id/menu_reset"
+        android:title="Reset Stats" />
+
+    <item
+        android:id="@+id/menu_edit"
+        android:title="Edit"
+        app:showAsAction="never" />
+
+</menu>
