@@ -16,6 +16,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,13 +64,14 @@ public class DiceRollActivity extends AppCompatActivity {
         diceVisual = findViewById(R.id.txtDiceVisual);
         result = findViewById(R.id.txtResult);
         customSidesInput = findViewById(R.id.inputCustomSides);
-        TextView vibrationStatus = findViewById(R.id.txtVibrationStatus);
+        Switch vibrationSwitch = findViewById(R.id.switchVibration);
         RecyclerView historyRecycler = findViewById(R.id.rvRollHistory);
         rollHandler = new Handler(Looper.getMainLooper());
 
-        vibrationStatus.setText(hasVibrator()
-                ? "Vibration available: rolls will buzz."
-                : "Vibration unavailable on this device.");
+        boolean vibrationAvailable = hasVibrator();
+        vibrationSwitch.setEnabled(vibrationAvailable);
+        vibrationSwitch.setChecked(vibrationAvailable);
+        vibrationSwitch.setText(vibrationAvailable ? "Vibration" : "Vibration unavailable");
 
         historyAdapter = new RollHistoryAdapter(rollHistory);
         historyRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -122,6 +124,7 @@ public class DiceRollActivity extends AppCompatActivity {
 
             intent.putExtra("roll", roll);
             intent.putExtra("sides", selectedSides);
+            intent.putExtra("vibrate", vibrationSwitch.isChecked());
 
             sendBroadcast(intent);
         });

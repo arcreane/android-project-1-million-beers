@@ -16,9 +16,12 @@ public class DiceReceiver extends BroadcastReceiver {
 
         int roll = intent.getIntExtra("roll", 0);
         int sides = intent.getIntExtra("sides", 20);
+        boolean shouldVibrate = intent.getBooleanExtra("vibrate", true);
 
-        Vibrator vibrator = getVibrator(context);
-        vibrate(vibrator, roll <= 2 ? 350 : 120);
+        if (shouldVibrate) {
+            Vibrator vibrator = getVibrator(context);
+            vibrate(vibrator, roll <= 2 ? 350 : 120);
+        }
 
         if (roll == sides) {
             Toast.makeText(context,
