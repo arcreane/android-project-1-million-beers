@@ -9,5 +9,6 @@
         <item>D12</item>
         <item>D20</item>
         <item>D100</item>
+        <item>Custom</item>
     </string-array>
 </resources>

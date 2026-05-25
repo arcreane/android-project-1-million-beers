@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".activities.DiceRollActivity">
 
     <TextView
         style="@style/TitleText"
@@ -13,17 +14,42 @@
         android:layout_height="wrap_content"
         android:text="Dice Roller" />
 
-    <Spinner
-        android:id="@+id/spinnerDice"
+    <TextView
+        android:id="@+id/txtVibrationStatus"
+        style="@style/BodyText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:entries="@array/dice_options" />
+        android:layout_marginTop="8dp"
+        android:text="Checking vibration..." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/dice_selection_panel_background"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerDice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/dice_options" />
+
+        <EditText
+            android:id="@+id/inputCustomSides"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:hint="Sides"
+            android:inputType="number"
+            android:maxLength="4" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtDiceVisual"
         android:layout_width="160dp"
         android:layout_height="160dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
         android:background="@drawable/dice_result_background"
         android:gravity="center"
@@ -47,5 +73,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Roll" />
+
+    <Button
+        android:id="@+id/btnClearHistory"
+        style="@style/PrimaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Clear History" />
+
+    <TextView
+        style="@style/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Roll History" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRollHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
