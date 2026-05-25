@@ -1,121 +1,157 @@
-# RPG Party Manager (Android App)
+# RPG Party Manager
 
-An Android application for managing RPG-style characters with stats such as HP, Mana, and role classes. The app is built using Java, AndroidX components, and Room for persistent storage.
-
----
+RPG Party Manager is a native Android app for managing tabletop RPG characters during a game session. It lets players create characters, track HP and Mana, edit character details, share a character sheet, and roll different types of dice with sound and vibration feedback.
 
 ## Features
 
-- Add new characters with name, class, HP, and Mana
-- View a list of all characters using RecyclerView
-- View detailed character stats
-- Edit character information including HP and Mana
-- Delete characters with confirmation dialog
-- Persistent storage using Room database
-- Dice rolling system with critical hit and failure detection
-- Real-time updates to character stats
-
----
+- Create characters with name, class, HP, and Mana
+- View all characters in a RecyclerView list
+- Preview character HP and Mana from the character list
+- Open a character detail screen with HP and Mana bars
+- Adjust HP and Mana with `-3`, `-1`, custom amount, `+1`, and `+3` controls
+- Reset character stats to the values they had when the detail screen was opened
+- Edit character information
+- Delete characters from the list
+- Share a character sheet through Android's standard share sheet
+- Roll D4, D6, D8, D10, D12, D20, D100, or a custom-sided die
+- Animated dice rolling with a shaking result panel
+- Dice roll history using RecyclerView, limited to the latest 10 rolls
+- Clear dice roll history
+- Optional roll vibration toggle
+- Roll sound support through `app/src/main/res/raw/roll.wav`
+- Critical hit and critical failure feedback through a BroadcastReceiver
+- Persistent character storage using Room
+- Landscape layout support for the character detail screen
 
 ## Tech Stack
 
-- Java (Android)
+- Java
+- Android Studio
 - AndroidX AppCompat
 - RecyclerView
 - Fragments
-- Room Persistence Library
-- Material Design components
-
----
+- Room persistence library
+- BroadcastReceiver
+- Android vibration hardware API
+- Android implicit Intents for sharing
 
 ## Project Structure
 
-The application is organized into the following packages:
-
-
 ```text
-com.example.rpgpartymanager
-│
-├── activities
-│   ├── MainActivity
-│   ├── CharacterListActivity
-│   ├── CharacterDetailActivity
-│   ├── CreateCharacterActivity
-│   ├── EditCharacterActivity
-│   └── DiceRollActivity
-│
-├── adapters
-│   └── CharacterAdapter (RecyclerView logic)
-│
-├── data
-│   ├── AppDatabase
-│   ├── CharacterDao
-│   └── CharacterEntity (Room model)
-│
-├── fragments
-│   └── StatsFragment (HP / Mana UI display)
-│
-├── models
-│   └── Character (UI model used by RecyclerView)
-│
-├── utils
-│   └── DiceManager
-│
-└── receivers
-└── DiceReceiver (handles dice roll broadcast events)
+app/src/main/java/com/example/rpgpartymanager/
+  activities/
+    MainActivity.java
+    CharacterListActivity.java
+    CharacterDetailActivity.java
+    CreateCharacterActivity.java
+    EditCharacterActivity.java
+    DiceRollActivity.java
+    SettingsActivity.java
 
+  adapters/
+    CharacterAdapter.java
+    RollHistoryAdapter.java
+
+  data/
+    AppDatabase.java
+    CharacterDao.java
+    CharacterEntity.java
+
+  fragments/
+    StatsFragment.java
+    InventoryFragment.java
+
+  models/
+    Character.java
+    CharacterEntity.java
+
+  receivers/
+    DiceReceiver.java
+
+  utils/
+    DiceManager.java
 ```
 
----
+Important resources:
+
+```text
+app/src/main/res/layout/
+  activity_main.xml
+  activity_character_list.xml
+  activity_character_detail.xml
+  activity_create_character.xml
+  activity_edit_character.xml
+  activity_dice_roll.xml
+  fragment_stats.xml
+  fragment_inventory.xml
+  item_character.xml
+  item_roll_history.xml
+
+app/src/main/res/layout-land/
+  activity_character_detail.xml
+
+app/src/main/res/menu/
+  character_menu.xml
+
+app/src/main/res/raw/
+  roll.wav
+```
 
 ## Database Schema
 
-The app uses a Room database with a single entity:
+The app uses a Room database with one main entity:
 
-CharacterEntity
-- id (Primary Key, auto-generated)
-- name (String)
-- role (String)
-- hp (Integer)
-- mana (Integer)
+`CharacterEntity`
 
----
+- `id`: auto-generated primary key
+- `name`: character name
+- `role`: character class or role
+- `hp`: current HP
+- `mana`: current Mana
 
 ## How to Run
 
-1. Clone or download the project
-2. Open the project in Android Studio
-3. Allow Gradle to sync dependencies
-4. Run the app on an emulator or physical device (minimum API 24)
+1. Open the project root folder in Android Studio.
+2. Wait for Gradle sync to finish.
+3. Select an emulator or physical Android device.
+4. Press Run.
 
----
+Minimum SDK: API 24.
 
 ## Application Flow
 
-- Main screen provides navigation to character list and dice roller
-- Character list loads data from Room database
-- Selecting a character opens the detail screen
-- Detail screen allows stat modification and editing
-- Changes are persisted immediately in Room database
+1. The main screen provides navigation to the character list and dice roller.
+2. The character list loads saved characters from Room.
+3. Selecting a character opens the detail screen.
+4. The detail screen displays HP and Mana through `StatsFragment`.
+5. The fragment sends stat changes back to `CharacterDetailActivity`.
+6. Updated stats are saved immediately in Room.
+7. The character menu can share the current sheet or reset stats.
+8. The dice roller supports preset/custom dice, animation, sound, vibration, and history.
 
----
+## External Libraries
+
+- AndroidX AppCompat: Activity compatibility and action bar support.
+- AndroidX RecyclerView: character list and dice roll history.
+- AndroidX Fragment: stat display and Activity/Fragment interaction.
+- Room: local persistent character database.
+- Material components: UI component support from the generated Android project.
+
+## Defense Checklist Mapping
+
+- Multiple Activities and Intents: main, character list, character detail, edit/create character, dice roller, plus share Intent.
+- Orientation handling: character detail has a landscape layout.
+- Fragment: `StatsFragment` displays stats and communicates stat changes to the Activity.
+- Menu: character detail menu supports share, reset, and edit actions.
+- Advanced view component: RecyclerView is used for characters and roll history.
+- Themes and styles: app theme and reusable text/button styles are defined in resources.
+- Phone hardware feature: dice rolling can use vibration feedback.
+- System-level component: `DiceReceiver` handles dice roll broadcast events.
 
 ## Future Improvements
 
-- Inventory system for characters
-- Equipment and item management
-- Character classes with passive bonuses
-- Improved UI with health and mana bars
-- Animations for stat changes
-- Cloud synchronization support
-
----
-
-## Notes
-
-This project demonstrates Android fundamentals including:
-- Activity navigation
-- Persistent local storage using Room
-- RecyclerView implementation
-- Basic game mechanics simulation
-- UI state management
+- Expand inventory management.
+- Add equipment and item effects.
+- Add character portraits.
+- Add accessibility labels and larger text polish.
+- Add instrumented tests for character creation, stat changes, and dice rolls.
