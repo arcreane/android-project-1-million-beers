@@ -18,4 +18,74 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="12dp">
+
+        <TextView
+            style="@style/BodyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HP"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnHpPlus1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+1 HP" />
+
+        <Button
+            android:id="@+id/btnHpPlus3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+3 HP" />
+
+        <Button
+            android:id="@+id/btnHpMinus1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-1 HP" />
+
+        <Button
+            android:id="@+id/btnHpMinus3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-3 HP" />
+
+        <TextView
+            style="@style/BodyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Mana"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnManaPlus1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+1 Mana" />
+
+        <Button
+            android:id="@+id/btnManaPlus3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+3 Mana" />
+
+        <Button
+            android:id="@+id/btnManaMinus1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-1 Mana" />
+
+        <Button
+            android:id="@+id/btnManaMinus3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-3 Mana" />
+    </LinearLayout>
+
 </LinearLayout>
