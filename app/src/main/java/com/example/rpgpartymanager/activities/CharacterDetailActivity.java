@@ -79,7 +79,7 @@ public class CharacterDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.menu_share) {
-            // existing share code
+            shareCharacter();
             return true;
         }
 
@@ -98,6 +98,21 @@ public class CharacterDetailActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void shareCharacter() {
+        String summary = entity.name + "\n"
+                + "Class: " + entity.role + "\n"
+                + "HP: " + entity.hp + "\n"
+                + "Mana: " + entity.mana;
+
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, entity.name + " character sheet");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, summary);
+
+        Intent chooser = Intent.createChooser(sendIntent, "Share Character");
+        startActivity(chooser);
     }
 
     @Override
