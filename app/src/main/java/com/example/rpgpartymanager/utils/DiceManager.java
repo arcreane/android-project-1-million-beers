@@ -9,4 +9,8 @@ public class DiceManager {
     public static int rollD20() {
         return random.nextInt(20) + 1;
     }
+
+    public static int roll(int sides) {
+        return random.nextInt(sides) + 1;
+    }
 }
