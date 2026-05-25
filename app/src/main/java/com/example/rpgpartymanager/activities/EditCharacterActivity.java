@@ -20,6 +20,12 @@ public class EditCharacterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_character);
 
+        setTitle("Editing Character");
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         db = AppDatabase.getInstance(this);
 
         int id = getIntent().getIntExtra("id", -1);
@@ -49,5 +55,11 @@ public class EditCharacterActivity extends AppCompatActivity {
             setResult(RESULT_OK);
             finish();
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

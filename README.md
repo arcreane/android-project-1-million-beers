@@ -56,6 +56,9 @@ com.example.rpgpartymanager
 ├── models
 │   └── Character (UI model used by RecyclerView)
 │
+├── utils
+│   └── DiceManager
+│
 └── receivers
 └── DiceReceiver (handles dice roll broadcast events)
 
