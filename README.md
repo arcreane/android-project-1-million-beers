@@ -32,6 +32,8 @@ An Android application for managing RPG-style characters with stats such as HP, 
 
 The application is organized into the following packages:
 
+
+```text
 com.example.rpgpartymanager
 │
 ├── activities
@@ -61,6 +63,8 @@ com.example.rpgpartymanager
 │
 └── receivers
 └── DiceReceiver (handles dice roll broadcast events)
+
+```
 
 ---
 
