@@ -23,6 +23,44 @@ RPG Party Manager is a native Android app for managing tabletop RPG characters d
 - Persistent character storage using Room
 - Landscape layout support for the character detail screen
 
+## Screenshots
+
+### Main Screen
+<img src="screenshots/main_screen.png" width="300"/>
+
+### Character List
+<img src="screenshots/character_list.png" width="300"/>
+
+### Create Character
+<img src="screenshots/create_character.png" width="300"/>
+
+### Character Detail (HP/Mana bars)
+<img src="screenshots/character_detail.png" width="300"/>
+
+### Edit Character
+<img src="screenshots/edit_character.png" width="300"/>
+
+### Custom Stat Change
+<img src="screenshots/custom_mana.png" width="300"/>
+
+### Dice Roller
+<img src="screenshots/dice_roller.png" width="300"/>
+
+### Dice Roller (with result & history)
+<img src="screenshots/dice_roller_result.png" width="300"/>
+
+---
+
+## Who Did What
+
+- **Maxim**: Dice roller, stat controls, README
+- **Nhat**: README setup, project structure
+- **Adithya**: Room database, character creation/editing
+- **Chris**: UI design, character list
+- **Jamie**: Testing, bug fixes
+
+---
+
 ## Tech Stack
 
 - Java
@@ -72,29 +110,39 @@ app/src/main/java/com/example/rpgpartymanager/
     DiceManager.java
 ```
 
-Important resources:
-
 ```text
-app/src/main/res/layout/
-  activity_main.xml
-  activity_character_list.xml
-  activity_character_detail.xml
-  activity_create_character.xml
-  activity_edit_character.xml
-  activity_dice_roll.xml
-  fragment_stats.xml
-  fragment_inventory.xml
-  item_character.xml
-  item_roll_history.xml
+app/src/main/java/com/example/rpgpartymanager/
+  activities/
+    MainActivity.java
+    CharacterListActivity.java
+    CharacterDetailActivity.java
+    CreateCharacterActivity.java
+    EditCharacterActivity.java
+    DiceRollActivity.java
+    SettingsActivity.java
 
-app/src/main/res/layout-land/
-  activity_character_detail.xml
+  adapters/
+    CharacterAdapter.java
+    RollHistoryAdapter.java
 
-app/src/main/res/menu/
-  character_menu.xml
+  data/
+    AppDatabase.java
+    CharacterDao.java
+    CharacterEntity.java
 
-app/src/main/res/raw/
-  roll.wav
+  fragments/
+    StatsFragment.java
+    InventoryFragment.java
+
+  models/
+    Character.java
+    CharacterEntity.java
+
+  receivers/
+    DiceReceiver.java
+
+  utils/
+    DiceManager.java
 ```
 
 ## Database Schema
