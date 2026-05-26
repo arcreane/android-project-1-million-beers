@@ -5,7 +5,20 @@
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
     <color name="teal_200">#03DAC5</color>
+    <color name="transparent">#00000000</color>
+    <color name="text_primary">#000000</color>
+    <color name="character_card_background">#A9A9A9</color>
     <color name="dice_surface">#F7F1E3</color>
     <color name="dice_border">#242424</color>
+    <color name="dice_selection_border">#D0D0D0</color>
+    <color name="dice_d4_border">#9C27B0</color>
+    <color name="dice_d6_border">#2E7D32</color>
+    <color name="dice_d10_border">#0277BD</color>
+    <color name="dice_d12_border">#EF6C00</color>
+    <color name="dice_d20_border">#C62828</color>
+    <color name="dice_custom_border">#37474F</color>
+    <color name="stat_bar_background">#DDDDDD</color>
+    <color name="hp_bar">#D32F2F</color>
+    <color name="mana_bar">#1976D2</color>
 
 </resources>
