@@ -18,6 +18,9 @@ public class CharacterDetailActivity extends AppCompatActivity implements StatsF
     private static final String KEY_INITIAL_HP = "initial_hp";
     private static final String KEY_INITIAL_MANA = "initial_mana";
 
+    private static final String KEY_INITIAL_HP = "initial_hp";
+    private static final String KEY_INITIAL_MANA = "initial_mana";
+
     private AppDatabase db;
     private CharacterEntity entity;
     private int initialHp;
