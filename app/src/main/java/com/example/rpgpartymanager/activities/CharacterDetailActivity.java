@@ -17,6 +17,8 @@ public class CharacterDetailActivity extends AppCompatActivity implements StatsF
 
     private static final String KEY_INITIAL_HP = "initial_hp";
     private static final String KEY_INITIAL_MANA = "initial_mana";
+    private static final String KEY_CURRENT_HP = "current_hp";
+    private static final String KEY_CURRENT_MANA = "current_mana";
 
     private static final String KEY_INITIAL_HP = "initial_hp";
     private static final String KEY_INITIAL_MANA = "initial_mana";
@@ -45,6 +47,8 @@ public class CharacterDetailActivity extends AppCompatActivity implements StatsF
         } else {
             initialHp = b.getInt(KEY_INITIAL_HP, entity.hp);
             initialMana = b.getInt(KEY_INITIAL_MANA, entity.mana);
+            entity.hp = b.getInt(KEY_CURRENT_HP, entity.hp);
+            entity.mana = b.getInt(KEY_CURRENT_MANA, entity.mana);
         }
 
         setTitle(entity.name);
@@ -135,6 +139,8 @@ public class CharacterDetailActivity extends AppCompatActivity implements StatsF
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(KEY_INITIAL_HP, initialHp);
         outState.putInt(KEY_INITIAL_MANA, initialMana);
+        outState.putInt(KEY_CURRENT_HP, entity.hp);
+        outState.putInt(KEY_CURRENT_MANA, entity.mana);
         super.onSaveInstanceState(outState);
     }
 
