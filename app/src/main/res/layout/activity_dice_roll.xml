@@ -44,7 +44,7 @@
         android:background="@drawable/dice_result_background"
         android:gravity="center"
         android:text="-"
-        android:textColor="@android:color/black"
+        android:textColor="@color/text_primary"
         android:textSize="52sp"
         android:textStyle="bold" />
 
