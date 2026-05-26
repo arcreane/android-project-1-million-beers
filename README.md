@@ -17,6 +17,44 @@ An Android application for managing RPG-style characters with stats such as HP, 
 
 ---
 
+## Screenshots
+
+### Main Screen
+<img src="screenshots/main_screen.png" width="300"/>
+
+### Character List
+<img src="screenshots/character_list.png" width="300"/>
+
+### Create Character
+<img src="screenshots/create_character.png" width="300"/>
+
+### Character Detail (HP/Mana bars)
+<img src="screenshots/character_detail.png" width="300"/>
+
+### Edit Character
+<img src="screenshots/edit_character.png" width="300"/>
+
+### Custom Stat Change
+<img src="screenshots/custom_mana.png" width="300"/>
+
+### Dice Roller
+<img src="screenshots/dice_roller.png" width="300"/>
+
+### Dice Roller (with result & history)
+<img src="screenshots/dice_roller_result.png" width="300"/>
+
+---
+
+## Who Did What
+
+- **Maxim**: Dice roller, stat controls, README
+- **Nhat**: README setup, project structure
+- **Adithya**: Room database, character creation/editing
+- **Chris**: UI design, character list
+- **Jamie**: Testing, bug fixes
+
+---
+
 ## Tech Stack
 
 - Java (Android)
@@ -31,7 +69,6 @@ An Android application for managing RPG-style characters with stats such as HP, 
 ## Project Structure
 
 The application is organized into the following packages:
-
 
 ```text
 com.example.rpgpartymanager
@@ -62,8 +99,7 @@ com.example.rpgpartymanager
 │   └── DiceManager
 │
 └── receivers
-└── DiceReceiver (handles dice roll broadcast events)
-
+    └── DiceReceiver (handles dice roll broadcast events)
 ```
 
 ---
