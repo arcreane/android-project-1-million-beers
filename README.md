@@ -111,35 +111,38 @@ app/src/main/java/com/example/rpgpartymanager/
 ```
 
 ```text
-com.example.rpgpartymanager
-│
-├── activities
-│   ├── MainActivity
-│   ├── CharacterListActivity
-│   ├── CharacterDetailActivity
-│   ├── CreateCharacterActivity
-│   ├── EditCharacterActivity
-│   └── DiceRollActivity
-│
-├── adapters
-│   └── CharacterAdapter (RecyclerView logic)
-│
-├── data
-│   ├── AppDatabase
-│   ├── CharacterDao
-│   └── CharacterEntity (Room model)
-│
-├── fragments
-│   └── StatsFragment (HP / Mana UI display)
-│
-├── models
-│   └── Character (UI model used by RecyclerView)
-│
-├── utils
-│   └── DiceManager
-│
-└── receivers
-    └── DiceReceiver (handles dice roll broadcast events)
+app/src/main/java/com/example/rpgpartymanager/
+  activities/
+    MainActivity.java
+    CharacterListActivity.java
+    CharacterDetailActivity.java
+    CreateCharacterActivity.java
+    EditCharacterActivity.java
+    DiceRollActivity.java
+    SettingsActivity.java
+
+  adapters/
+    CharacterAdapter.java
+    RollHistoryAdapter.java
+
+  data/
+    AppDatabase.java
+    CharacterDao.java
+    CharacterEntity.java
+
+  fragments/
+    StatsFragment.java
+    InventoryFragment.java
+
+  models/
+    Character.java
+    CharacterEntity.java
+
+  receivers/
+    DiceReceiver.java
+
+  utils/
+    DiceManager.java
 ```
 
 ## Database Schema
