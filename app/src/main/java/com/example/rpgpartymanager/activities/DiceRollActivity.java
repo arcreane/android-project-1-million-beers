@@ -1,7 +1,6 @@
 package com.example.rpgpartymanager.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -21,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -192,7 +192,7 @@ public class DiceRollActivity extends AppCompatActivity {
     private void updateDiceStyle(int sides) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setColor(Color.parseColor("#F7F1E3"));
+        background.setColor(ContextCompat.getColor(this, R.color.dice_surface));
         background.setCornerRadius(dpToPx(16));
         background.setStroke(dpToPx(3), getDiceBorderColor(sides));
         diceVisual.setBackground(background);
@@ -200,17 +200,17 @@ public class DiceRollActivity extends AppCompatActivity {
 
     private int getDiceBorderColor(int sides) {
         if (sides <= 4) {
-            return Color.parseColor("#9C27B0");
+            return ContextCompat.getColor(this, R.color.dice_d4_border);
         } else if (sides <= 6) {
-            return Color.parseColor("#2E7D32");
+            return ContextCompat.getColor(this, R.color.dice_d6_border);
         } else if (sides <= 10) {
-            return Color.parseColor("#0277BD");
+            return ContextCompat.getColor(this, R.color.dice_d10_border);
         } else if (sides <= 12) {
-            return Color.parseColor("#EF6C00");
+            return ContextCompat.getColor(this, R.color.dice_d12_border);
         } else if (sides <= 20) {
-            return Color.parseColor("#C62828");
+            return ContextCompat.getColor(this, R.color.dice_d20_border);
         }
-        return Color.parseColor("#37474F");
+        return ContextCompat.getColor(this, R.color.dice_custom_border);
     }
 
     private int dpToPx(int dp) {
