@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/party_action_edit" android:title="@string/party_edit" />
+    <item android:id="@+id/party_action_share" android:title="@string/party_share" />
+    <item android:id="@+id/party_action_hp" android:title="@string/party_adjust_hp" />
+    <item android:id="@+id/party_action_mana" android:title="@string/party_adjust_mana" />
+</menu>

@@ -1,5 +1,37 @@
 <resources>
     <string name="app_name">RPG Party Manager</string>
+    <string name="party_board_title">Party Tracker</string>
+    <string name="party_local">Local party</string>
+    <string name="party_add">Add character</string>
+    <string name="party_dice">Dice roller</string>
+    <string name="party_empty">No characters yet</string>
+    <string name="party_health_label">HP</string>
+    <string name="party_mana_label">Mana</string>
+    <string name="party_reset">Reset stats</string>
+    <string name="party_actions">Character actions</string>
+    <string name="party_actions_for">Actions for %1$s</string>
+    <string name="party_edit">Edit character</string>
+    <string name="party_share">Share character</string>
+    <string name="party_adjust_hp">Adjust HP</string>
+    <string name="party_adjust_mana">Adjust Mana</string>
+    <string name="party_adjust_hint">Amount, e.g. 5 or -5</string>
+    <string name="party_apply">Apply</string>
+    <string name="party_invalid_amount">Enter a whole number from -2147483648 to 2147483647.</string>
+    <string name="party_share_summary">%1$s\nClass: %2$s\nHP: %3$d\nMana: %4$d</string>
+    <string name="party_share_subject">%1$s character sheet</string>
+    <string name="party_delete">Delete</string>
+    <string name="party_delete_title">Delete %1$s?</string>
+    <string name="party_delete_message">This character will be removed from this device.</string>
+    <string name="party_hp_accessibility">HP: %1$d</string>
+    <string name="party_mana_accessibility">Mana: %1$d</string>
+    <string name="party_decrease_three">-3</string>
+    <string name="party_decrease_one">-1</string>
+    <string name="party_increase_one">+1</string>
+    <string name="party_increase_three">+3</string>
+    <plurals name="party_character_count">
+        <item quantity="one">%d character</item>
+        <item quantity="other">%d characters</item>
+    </plurals>
 
     <string-array name="dice_options">
         <item>D4</item>

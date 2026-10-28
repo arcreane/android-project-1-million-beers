@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/partyBoard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="130dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
-
-    <!-- ADD BUTTON -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Character"
-        android:layout_marginBottom="12dp"/>
-
-    <!-- LIST -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+    android:background="@color/party_background"
+    android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView style="@style/PartyNameText" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/party_local" />
+        <Button android:id="@+id/btnPartyDice" style="@style/PartyButton"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/party_dice" />
+    </LinearLayout>
+    <Button android:id="@+id/btnAdd" style="@style/PartyPrimaryButton"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" android:text="@string/party_add" />
+    <TextView android:id="@+id/txtPartyCount" style="@style/PartyMutedText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:paddingTop="12dp" android:paddingBottom="12dp" />
+    <TextView android:id="@+id/txtPartyEmpty" style="@style/PartyMutedText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center" android:padding="24dp" android:text="@string/party_empty" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:clipToPadding="false" />
 </LinearLayout>

@@ -20,5 +20,15 @@
     <color name="stat_bar_background">#DDDDDD</color>
     <color name="hp_bar">#D32F2F</color>
     <color name="mana_bar">#1976D2</color>
+    <color name="party_background">#101417</color>
+    <color name="party_surface">#182024</color>
+    <color name="party_control">#2A3439</color>
+    <color name="party_border">#394348</color>
+    <color name="party_text">#F4F7F5</color>
+    <color name="party_muted">#A9B7B3</color>
+    <color name="party_accent">#50C878</color>
+    <color name="party_on_accent">#0D1710</color>
+    <color name="party_health">#FF6B6B</color>
+    <color name="party_mana">#5EB6FF</color>
 
 </resources>
